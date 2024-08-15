@@ -9,6 +9,10 @@ A classic Pong game implemented in HTML and JavaScript. This game can be played 
 - **Ball Mechanics**: The ball bounces off the top, bottom, and paddles, resetting if it goes off-screen.
 - **Scoring**: The game tracks and displays scores for both the player and the AI.
 
+## Live website
+
+Live websiteV- https://chandranshulg.github.io/pong-game/
+
 ## How to Play
 
 1. **Clone the Repository:**
