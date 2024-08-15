@@ -31,6 +31,8 @@
         let paddleSpeed = 4;
         let ballSpeedX = 5;
         let ballSpeedY = 3;
+        let playerScore = 0;
+        let aiScore = 0;
 
         const playerPaddle = {
             x: 20,
@@ -68,6 +70,11 @@
             ctx.beginPath();
             ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2, false);
             ctx.fill();
+
+            // Draw scores
+            ctx.font = '24px Arial';
+            ctx.fillText(`Player: ${playerScore}`, 50, 30);
+            ctx.fillText(`AI: ${aiScore}`, canvas.width - 100, 30);
         }
 
         // Update the game elements
@@ -106,12 +113,22 @@
                 playerPaddle.y += paddleSpeed;
             }
 
-            // Ball reset
-            if (ball.x - ball.radius < 0 || ball.x + ball.radius > canvas.width) {
-                ball.x = canvas.width / 2;
-                ball.y = canvas.height / 2;
-                ball.speedX = -ball.speedX;
+            // Ball reset and scoring
+            if (ball.x - ball.radius < 0) {
+                aiScore++;
+                resetBall();
+            } else if (ball.x + ball.radius > canvas.width) {
+                playerScore++;
+                resetBall();
             }
+        }
+
+        // Reset ball position and speed
+        function resetBall() {
+            ball.x = canvas.width / 2;
+            ball.y = canvas.height / 2;
+            ball.speedX = -ball.speedX;
+            ball.speedY = (Math.random() > 0.5 ? 1 : -1) * ballSpeedY;
         }
 
         // Control variables
