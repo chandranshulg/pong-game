@@ -21,8 +21,8 @@ Live websiteV- https://chandranshulg.github.io/pong-game/
    git clone https://github.com/chandranshulg/pong-game.git
 2. **Navigate to project directory:**
 
-   ''bash
-  cd pong-game
+   ```bash
+   cd pong-game
 
 ## License and Contributing
 
